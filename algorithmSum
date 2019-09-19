@@ -1,0 +1,18 @@
+import pylab as plt
+import numpy as np
+
+
+def cdf_plot(data_series):
+    data_size = len(data_series)
+    data_set = sorted(set(data_series))
+    bins = np.append(data_set, data_set[-1] + 1)
+    counts, bin_edges = np.histogram(data_series, bins=bins, density=False)
+    counts = counts.astype(float) / data_size
+    cdf = np.cumsum(counts)
+
+    plt.plot(bin_edges[0:-1], cdf, linestyle='--', marker="o", color='b')
+    plt.ylim((0, 1))
+    plt.ylabel("CDF")
+    plt.grid(True)
+
+    plt.show()
