@@ -110,7 +110,7 @@ def roulette(proportion, count):
     return select
 
 
-# 一次交叉[input:父代两个gene_str&交叉算子pc，output:子代新的两个gene_str]
+# 一次交叉[input:父代两个gene_str，output:子代新的两个gene_str]
 def crossover(father, mother):
     a = random.randint(0, gene_length - 1)  # 随机找两个交叉点
     b = random.randint(0, gene_length - 1)

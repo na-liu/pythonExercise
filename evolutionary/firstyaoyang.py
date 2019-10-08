@@ -154,9 +154,9 @@ def evolution(v):
     re = list(map(sy.index, heapq.nlargest(1, sy)))  # todo 不明白
     print(sy.index)
     print('re:', re)
-    print('种群', v[re[0]])
-    print('什么啊', round(float(vv[re[0]][0]), 4), round(float(vv[re[0]][1]), 4))
-    print('第三个', round(float(sy[re[0]]), 4))
+    print('individual:', v[re[0]])
+    print('x1,x2:', round(float(vv[re[0]][0]), 4), round(float(vv[re[0]][1]), 4))
+    print('fit:', round(float(sy[re[0]]), 4))
     ay.append(sy[re[0]])
     select = Roulette(p, len(v))  # 轮盘赌选择
 
@@ -187,7 +187,7 @@ def evolution(v):
     else:  # adaptablility:[x1,x2]，适应度，适应度比例
         vv1, sy1, p1 = adaptability(the_generation, len(the_generation))  # 解码结果、适应度、个体适应度比值
         re1 = list(map(sy1.index, heapq.nlargest(N_C, sy1)))
-        print("re1的长度", len(re1))
+        # print("re1的长度", len(re1))
         next_generation = []
         for i in range(len(re1)):
             next_generation.append(the_generation[re1[i]])
