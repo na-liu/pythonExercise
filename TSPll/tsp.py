@@ -9,20 +9,24 @@ n个城市，用1-n的整数编码，city = [1,2 3,...,n\n = N+]
 
 解决：
 遗传算法
-    1. 初始化种群。采用整数编码，一个个体描述一条可行的路线
+    1. 初始化种群。采用整数编码，一个个体描述一条可行的路线 todo 近邻表示、次序表示
     2. 适应度函数就是每一条路径的距离，现在的目标是该值越小越好
+    3. 交叉：子代应是可行解
+    4. 变异：todo 生成n-1个随机数，令ai∈[ 0,i]
+    5. todo 局部搜索
+    6. todo 选择策略中精英保留
 """
 import numpy as np
 import random
 import heapq
 
 # ----------------------------初始化定义变量-------------------------
-population_size = 100  # 种群规模
+population_size = 100  # 种群规模 len(generation)
 gene_length = 48  # 基因长度，城市个数
 pc = 0.6  # 交叉概率
 pm = 0.01  # 变异概率
-# t = 0  # 进化代数
-T = 100  # 迭代次数
+t = 0  # 进化代数
+T = 1000  # 迭代次数
 
 
 # --------------------------城市距离矩阵-----------------------------
@@ -59,23 +63,20 @@ def init_generation():
     for i in range(gene_length):
         gene.append(i)
     next_generation = []
-    print(gene)
     for i in range(population_size):
         np.random.shuffle(gene)
         # print(i, gene)
-        next_generation.append(gene.copy())
-    print('初始化种群：\n', next_generation)
+        next_generation.append(gene.copy())  # 此处需要值传递，如果传入gene的话，由于python的机制，每一次都会覆盖掉之前的随机gene
+    # print('初始化种群：\n', next_generation)
     return next_generation
 
 
 # -----------------适应度函数：由个体求出总路径长度------------------
 def total_cost(individual):  # individual:一维数组，表示一条路径
     path_cost = 0
-    for i in range(len(individual)):
-        if i == len(individual) - 1:
-            path_cost += dist_array[individual[0], individual[i]]
-        else:
-            path_cost += dist_array[individual[i], individual[i + 1]]
+    for i in range(len(individual) - 1):
+        path_cost += dist_array[individual[i], individual[i + 1]]
+    path_cost += dist_array[individual[0], individual[len(individual) - 1]]
     # print('该条路径总距离：', path_cost)
     return path_cost
 
@@ -86,11 +87,13 @@ def adaption(generation):
     fit = []  # 个体的适应度值
     proportion = []  # 个体适应度值占比
     for i in range(len(generation)):  # 当前种群的长度
+        # print('current generarion:', generation[i])
+        # print('dist:', total_cost(generation[i]))
         fit.append(1 / total_cost(generation[i]))  # 计算个体的适应度值，距离的倒数
         dist.append(total_cost(generation[i]))
     for i in range(len(generation)):
         proportion.append(fit[i] / sum(fit))
-    print('\nfit:\n', fit, '\npro:\n', proportion)
+    # print('\nfit:\n', fit, '\npro:\n', proportion)
     return fit, proportion, dist
 
 
@@ -144,13 +147,27 @@ def mutation(individual):
     return individual
 
 
+# 找种群中最好的一个精英的id
+def find_bestid(generation):
+    tmp = total_cost(generation[0])
+    best_id = 0
+    for i in range(len(generation)):
+        if total_cost(generation[i]) < tmp:
+            best_id = i
+    return best_id, total_cost(generation[best_id])
+
+
 # -------------------------------进化，精英保留--------------------------------
-def evoltution(generation):
+def evoltution(generation, t):
+    best_id, best_cost = find_bestid(generation)
+    print(t, '代最好的：', best_cost)
+
     # 1. 交叉
     offspring1 = []  # 交叉产生的后代
     j = 0
     for i in range(int(population_size / 2)):
         rand = random.uniform(0, 1)
+        # print(i, j, len(generation))
         father = generation[j]
         mother = generation[j + 1]
         if rand <= pc:
@@ -173,14 +190,14 @@ def evoltution(generation):
     next_generation = []
     the_generation = generation + offspring2  # 当前的父代和子代
     fit, proportion, dist = adaption(the_generation)
-    re = list(map(fit.index, heapq.nlargest(1, fit)))  # 选出最大的一个
-    print('re:', re[0])
-    print('最好的：', dist[re[0]])
-    # next_generation.append()
-
-    select_no = roulette(proportion, population_size - 1)
+    select_no = roulette(proportion, population_size - 1)  # 选出N-1个个体进入下一代
     for i in range(len(select_no)):
         next_generation.append(the_generation[select_no[i]])
+
+    t += 1
+    best_id, best_cost = find_bestid(next_generation)
+    print(t, '代最好的：', best_cost)
+
     return next_generation
 
 
@@ -189,8 +206,9 @@ if __name__ == '__main__':
     dist_array = city_distance("./data/gr48.txt")  # 各个城市距离矩阵
     generation = init_generation()  # 初始化种群
     for i in range(T):
-        evoltution(generation)  # 种群进化
-    print(generation)
+        generation = evoltution(generation, t)  # 种群进化
+        print(len(generation))  # todo 解决种群数量问题
+    # print(generation)
 
 # crossover([2, 1, 3, 4, 5, 6, 7], [4, 3, 1, 2, 5, 7, 6])
 # print(mutation([1, 2, 3, 4, 5, 6, 7]))
