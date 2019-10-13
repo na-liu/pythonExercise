@@ -9,7 +9,7 @@ import time
 start = time.time()
 
 # 初始化变量
-N = 10  # 种群数量
+N = 200  # 种群数量
 N_C = int(N / 5)
 e = 10 ** -4  # 精度
 p_c = 0.6  # 交叉概率
@@ -91,16 +91,16 @@ def variation(c, p_m):
 # 计算适应度值 输入为种群 输出为解码后的x1、x2数组和种群适应度值
 def adaptability(v, count):
     vv = []  # 解码结果
-    sy = []  # 适应度的值
+    fit = []  # 适应度的值
     p = []  # 个体的适应度占总适应度的比值
     for i in range(count):
         tem = decode(v[i], x1CodeLength, x2CodeLength)
         vv.append(tem)
-        sy.append(objectiveFunction(tem[0], tem[1]))
+        fit.append(objectiveFunction(tem[0], tem[1]))
 
     for i in range(count):
-        p.append(sy[i] / sum(sy))
-    return vv, sy, p
+        p.append(fit[i] / sum(fit))
+    return vv, fit, p
 
 
 # 生成随机数组 输入为选择浮点型还是整形、数组长度、区间
@@ -150,14 +150,10 @@ def Roulette(p, count):
 
 
 def evolution(v):
-    vv, sy, p = adaptability(v, len(v))  # 解码结果、适应度、个体适应度比值
-    re = list(map(sy.index, heapq.nlargest(1, sy)))  # todo 不明白
-    print(sy.index)
-    print('re:', re)
-    print('individual:', v[re[0]])
-    print('x1,x2:', round(float(vv[re[0]][0]), 4), round(float(vv[re[0]][1]), 4))
-    print('fit:', round(float(sy[re[0]]), 4))
-    ay.append(sy[re[0]])
+    vv, fit, p = adaptability(v, len(v))  # 解码结果、适应度、个体适应度比值
+    re = list(map(fit.index, heapq.nlargest(1, fit)))  # 将适应度最大的一个个体以及其标号形成一个映射
+    print('fit:', round(float(fit[re[0]]), 4))
+    ay.append(fit[re[0]])
     select = Roulette(p, len(v))  # 轮盘赌选择
 
     test_c = generateRandomNumbers(1, int(N / 2), 0, 1)
@@ -185,14 +181,14 @@ def evolution(v):
     if len(children) == 0:
         next_generation = v
     else:  # adaptablility:[x1,x2]，适应度，适应度比例
-        vv1, sy1, p1 = adaptability(the_generation, len(the_generation))  # 解码结果、适应度、个体适应度比值
-        re1 = list(map(sy1.index, heapq.nlargest(N_C, sy1)))
+        vv1, fit1, p1 = adaptability(the_generation, len(the_generation))  # 解码结果、适应度、个体适应度比值
+        re1 = list(map(fit1.index, heapq.nlargest(N_C, fit1)))  # 1/5的最好适应度个体
         # print("re1的长度", len(re1))
         next_generation = []
         for i in range(len(re1)):
             next_generation.append(the_generation[re1[i]])
 
-        select1 = Roulette(p1, N - N_C)  # 轮盘赌选择
+        select1 = Roulette(p1, N - N_C)  # 轮盘赌选择 4/5
         for i in range(len(select1)):
             next_generation.append(the_generation[select1[i]])
     return next_generation
@@ -204,11 +200,11 @@ ay = []  # 定义一个 y 轴的空列表用来接收动态的数据
 x1CodeLength, x2CodeLength, CodeLength = computeCodeLenght(x1_left, x1_right, x2_left, x2_right, e)
 next_generation = generateGeneration(N, CodeLength)
 
-for i in range(10):
+for i in range(200):
     ax.append(i)  # 添加 i 到 x 轴的数据中
     next_generation = evolution(next_generation)
 
 end = time.time()
-print('运行时间：', end - start)
+# print('运行时间：', end - start)
 plt.plot(ax, ay, '.')
-plt.show()
+# plt.show()

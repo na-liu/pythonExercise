@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7e6a87-147f-4f2c-a167-2ca5c4cf405b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TSPll/tsp.py" beforeDir="false" afterPath="$PROJECT_DIR$/TSPll/tsp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evolutionary/GANO1.py" beforeDir="false" afterPath="$PROJECT_DIR$/evolutionary/GANO1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evolutionary/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/evolutionary/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evolutionary/firstyaoyang.py" beforeDir="false" afterPath="$PROJECT_DIR$/evolutionary/firstyaoyang.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,27 +32,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evolutionary/firstyaoyang.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3775">
-              <caret line="156" column="22" selection-start-line="156" selection-start-column="22" selection-end-line="156" selection-end-column="22" />
+            <state relative-caret-position="150">
+              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TSPll/tsp.py">
+        <entry file="file://$PROJECT_DIR$/evolutionary/GANO1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="209" column="14" selection-start-line="209" selection-start-column="14" selection-end-line="209" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
               <folding>
-                <element signature="e#233#251#0" expanded="true" />
+                <element signature="e#884#895#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TSPll/tsp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="209" column="25" selection-start-line="209" selection-start-column="25" selection-end-line="209" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evolutionary/demo.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -95,16 +109,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CHROMOSOME_SIZE</find>
-      <find>chromosome_state</find>
-      <find>FINISHED_LIMIT</find>
-      <find>filter</find>
-      <find>chromosome_states</find>
-      <find>select</find>
       <find>v[]</find>
       <find>cross</find>
       <find>p_c</find>
-      <find>p</find>
       <find>print</find>
       <find>sele</find>
       <find>3103.0</find>
@@ -125,6 +132,13 @@
       <find>该条路径总距离</find>
       <find>population_size</find>
       <find>99</find>
+      <find>evoltution</find>
+      <find>变异前</find>
+      <find>sy</find>
+      <find>p</find>
+      <find>vv</find>
+      <find>isinst</find>
+      <find>结果</find>
     </findStrings>
     <dirStrings>
       <dir>D:\pythonCode\python3exercise\demo</dir>
@@ -185,10 +199,10 @@
         <option value="$PROJECT_DIR$/TSP/MyFuncTool.py" />
         <option value="$PROJECT_DIR$/evolutionary/yali.py" />
         <option value="$PROJECT_DIR$/TSP/GA_TSP_Main.py" />
-        <option value="$PROJECT_DIR$/evolutionary/GANO1.py" />
-        <option value="$PROJECT_DIR$/evolutionary/firstyaoyang.py" />
-        <option value="$PROJECT_DIR$/evolutionary/demo.py" />
         <option value="$PROJECT_DIR$/TSPll/tsp.py" />
+        <option value="$PROJECT_DIR$/evolutionary/demo.py" />
+        <option value="$PROJECT_DIR$/evolutionary/firstyaoyang.py" />
+        <option value="$PROJECT_DIR$/evolutionary/GANO1.py" />
       </list>
     </option>
   </component>
@@ -211,6 +225,11 @@
             <path>
               <item name="python3exercise" type="b2602c69:ProjectViewProjectNode" />
               <item name="python3exercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python3exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python3exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="evolutionary" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="python3exercise" type="b2602c69:ProjectViewProjectNode" />
@@ -261,14 +280,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tsp">
+  <component name="RunManager" selected="Python.firstyaoyang">
     <configuration name="GANO1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python3exercise" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/evolutionary" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -332,9 +348,6 @@
       <module name="python3exercise" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/evolutionary" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -342,6 +355,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evolutionary/demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="firstyaoyang" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python3exercise" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/evolutionary" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evolutionary/firstyaoyang.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -369,35 +401,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yali" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="python3exercise" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/evolutionary" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evolutionary/yali.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tsp" />
-        <item itemvalue="Python.demo (1)" />
-        <item itemvalue="Python.GA_TSP_Main (1)" />
+        <item itemvalue="Python.firstyaoyang" />
         <item itemvalue="Python.GANO1" />
-        <item itemvalue="Python.yali" />
+        <item itemvalue="Python.demo (1)" />
+        <item itemvalue="Python.tsp" />
+        <item itemvalue="Python.GA_TSP_Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -461,14 +471,24 @@
       <workItem from="1570461199290" duration="5830000" />
       <workItem from="1570500157284" duration="951000" />
       <workItem from="1570523167273" duration="16345000" />
-      <workItem from="1570588883017" duration="6546000" />
+      <workItem from="1570588883017" duration="7487000" />
+      <workItem from="1570754957324" duration="1106000" />
+      <workItem from="1570931517004" duration="8103000" />
     </task>
+    <task id="LOCAL-00001" summary="yeah nothing be resolved">
+      <created>1570596643293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570596643293</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218418000" />
+    <option name="totallyTimeSpent" value="228568000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -479,9 +499,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22878788" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23636363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2488189" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -489,7 +508,7 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32954547" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.47564936" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
@@ -502,11 +521,15 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="SciView" internal_type="SLIDING" order="4" sideWeight="0.49514562" type="SLIDING" weight="0.7825758" />
       <window_info anchor="right" id="Database" order="5" weight="0.78409094" />
-      <window_info anchor="right" id="Python Console" internal_type="SLIDING" order="6" sideWeight="0.49190938" type="SLIDING" visible="true" weight="0.57348484" />
+      <window_info active="true" anchor="right" id="Python Console" internal_type="SLIDING" order="6" sideWeight="0.49190938" type="SLIDING" visible="true" weight="0.49469697" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="yeah nothing be resolved" />
+    <option name="LAST_COMMIT_MESSAGE" value="yeah nothing be resolved" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python3exercise$demoSet.coverage" NAME="demoSet Coverage Results" MODIFIED="1562815051311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -750,27 +773,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evolutionary/GANO1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="157" column="25" lean-forward="true" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
-          <folding>
-            <element signature="e#884#895#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hefei/file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evolutionary/firstyaoyang.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3775">
-          <caret line="156" column="22" selection-start-line="156" selection-start-column="22" selection-end-line="156" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -799,14 +805,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evolutionary/demo.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TSPll/tsp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="209" column="14" selection-start-line="209" selection-start-column="14" selection-end-line="209" selection-end-column="14" />
+        <state relative-caret-position="514">
+          <caret line="209" column="25" selection-start-line="209" selection-start-column="25" selection-end-line="209" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evolutionary/firstyaoyang.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evolutionary/GANO1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding>
-            <element signature="e#233#251#0" expanded="true" />
+            <element signature="e#884#895#0" expanded="true" />
           </folding>
         </state>
       </provider>
