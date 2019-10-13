@@ -1,4 +1,3 @@
-a = list(map(int, list("12345")))
-b = ''
-print(''.join(str(i) for i in a))
-print(b)
+a = ['11111', '11111', '121']
+b = ['11111', '12121', '11111', '6633' '121']
+print(len(set(a).difference(set(b))))

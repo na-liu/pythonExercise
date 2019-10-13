@@ -1,25 +1,3 @@
-"""
-题目：
-    max f(x1,x2) = 21.5 + x1 sin(4 PI x1) + x2 sin(20 PI x2)
-    s.t.
-    x1∈[-3.0, 12.1]
-    x2∈[4.1, 5.8]
-    E = 10^-4
-解决：遗传算法
-    1. 初始化种群:计算基因位数，生成初始个体，确定种群规模N，生成初始种群P，设置代数t=0
-        二进制编码长度计算公式：(b - a) / 10^α + 1 ≤2^m
-        math.log(num,base) base：默认为e; ceil 向上取整，floor 向下取整
-        随机数生成方法：
-            random.randint(a,b[,c]) : [a,b]的随机整数,c是步幅
-            np.random.randint(a,b) : [a,b)前闭后开 (low=?,high=?,size=?,dtype=) size需要是整数或tuple,表示几行几列
-            random.uniform(a,b)
-    2. 计算个体适应度值，需要解码:y = a + (b - a)*x/(2^m-1),再代入f(x1,x2)中
-    3. 轮盘赌选择，需要求出个体适应度比例p,再求出累计适应度区间q,随机生成N个(0,1)之间的数，得到所选择的个体编号
-    4. 交叉，需要交叉算子pc，随机生成N/2个(0,1)之间的数，小于等于pc就交叉；
-        父代个体通过两点交叉，生成两个(0，31)随机数作为交叉点，交换中间的gene得到两个子代个体
-    5. 变异，对交叉产生的m个后代，随机生成m*33个(0,1)的随机数，判断变异位置进行变异
-    6. 计算后代的适应度值，从generation∪offspring1∪offspring2中选N个，选出E个最好的直接保留到下一代，再从剩余中选出N-E个轮盘赌-->得到next_generation
-"""
 import math
 import random
 import heapq
@@ -29,10 +7,10 @@ import matplotlib.pyplot as plt
 start = time.time()
 
 # ----------------------------初始化定义变量-------------------------
-x1_left = -3.0  # x1，x2变量的范围
-x1_right = 12.1
-x2_left = 4.1
-x2_right = 5.8
+x1_left = -2.048  # x1，x2变量的范围
+x1_right = 2.048
+x2_left = -2.048
+x2_right = 2.048
 precision = 10 ** -4  # 精度要求
 pc = 0.6  # 交叉概率
 pm = 0.01  # 变异概率
@@ -215,19 +193,3 @@ if __name__ == '__main__':
     print('运行时间：', end - start)
     plt.plot(ax, ay, '.')
     plt.show()
-'''
-bug:从10几代开始，每一代交叉之后的个体显示与上一代是一样的，差集为空
-explanation：说明交叉函数，变异函数没有正确执行
-solve：找了很久，发现变异的最关键的gene编译部分的空格错位，python是严格要求每一行语句的先后关系的
-
-找bug时的一些注释
-B = set(generation).difference(set(offspring))
-# print('这一次进化交叉几次：', jiaocahcishu)
-C = set(generation).difference(set(offspring1)) # 求差集
-D = set(offspring).difference(set(offspring1))
-A = set(generation).difference(set(next_generation))
-print('cross', len(B), B)
-print('mutation', len(C), C)
-print('select', len(A), A)
-print('mutation-crossover：', len(D), D)
-'''
